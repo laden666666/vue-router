@@ -1,5 +1,6 @@
 declare var document: Document;
 
+// 定义path-to-regexp模块，应该是path-to-regexp不提供flow的定义文件
 declare module 'path-to-regexp' {
   declare var exports: {
     (path: string, keys: Array<?{ name: string }>): RegExp;
@@ -7,21 +8,31 @@ declare module 'path-to-regexp' {
   }
 }
 
+// 
 declare type Dictionary<T> = { [key: string]: T }
 
+// 页面跳转的回调函数类型
 declare type NavigationGuard = (
   to: Route,
   from: Route,
   next: (to?: RawLocation | false | Function | void) => void
 ) => any
 
+// 路由的中配置
 declare type RouterOptions = {
+  // route的配置
   routes?: Array<RouteConfig>;
+  // 路由模式：hash、state、内存
   mode?: string;
+  // baseURL
   base?: string;
+  // ？？？
   linkActiveClass?: string;
+  // 将查询字符串转为对象？？？
   parseQuery?: (query: string) => Object;
+  // 将对象序列化查询参数？？？
   stringifyQuery?: (query: Object) => string;
+  // 滚动行为
   scrollBehavior?: (
     to: Route,
     from: Route,
@@ -35,7 +46,9 @@ declare type RouteConfig = {
   path: string;
   name?: string;
   component?: any;
-  components?: Dictionary<any>;
+  components?: 
+  
+  <any>;
   redirect?: RedirectOption;
   alias?: string | Array<string>;
   children?: Array<RouteConfig>;
